@@ -9,7 +9,7 @@ interface DataCardProps {
 
 const DataCard: FunctionComponent<DataCardProps> = ({ title, value }): JSX.Element => {
     return (
-        <div className={StyleSheet.}>
+        <div className={styles.infoCard}>
             <h2> {title} </h2>
 
             <p> {value} </p>

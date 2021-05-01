@@ -25,6 +25,7 @@ const Index: FunctionComponent = (): JSX.Element => {
     return (
         <div className={styles.indexPage}>
             <Header />
+            <h2>Coronavirus Info</h2>
             <div className={styles.infoCardsContainer}>
                 <section className={styles.infoCards}>
                 <DataCard title="Infected" value={ data !== {} ? data.confirmed.value : "Fetching"} />
