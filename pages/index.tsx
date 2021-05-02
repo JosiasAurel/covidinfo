@@ -5,22 +5,24 @@ import DataCard from "../components/DataCard";
 
 import styles from "../styles/index.module.css";
 
-const Index: FunctionComponent = (): JSX.Element => {
+import { GetStaticProps } from "next";
 
-    const [data, setData] = useState({});
+const Index: FunctionComponent = ({ data }): JSX.Element => {
 
-    function fetchData() {
+    // const [data, setData] = useState({});
+
+    /* function fetchData() {
         fetch("https://covid19.mathdro.id/api")
             .then(res => res.json())
             .then(d => {
                 console.log(d);
                 setData(d);
             })
-    }
+    } */
 
-    useEffect(() => {
+    /* useEffect(() => {
         fetchData();
-    }, [])
+    }, []) */
 
     return (
         <div className={styles.indexPage}>
@@ -36,6 +38,15 @@ const Index: FunctionComponent = (): JSX.Element => {
             </div>
         </div>
     )
+}
+
+export const getStaticProps: GetStaticProps = async ctx  => {
+    const res = await fetch("https://covid19.mathdro.id/api");
+    const data = await res.json();
+    
+    return {
+        props: { data }
+    }
 }
 
 export default Index;
