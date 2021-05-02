@@ -16,7 +16,7 @@ const Header: FunctionComponent<HeaderProps> = ({ country }): JSX.Element => {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        router.replace(`/${Country}`);
+        router.push(`/${Country}`);
     }
 
     function handleChange(event, handler) {
