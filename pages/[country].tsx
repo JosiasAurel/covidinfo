@@ -9,13 +9,14 @@ import Head from "next/head";
 import styles from "../styles/index.module.css";
 
 interface CountryPageProps {
+    data: any,
     country: any
 }
 
-const Country: FunctionComponent<CountryPageProps> = ({ country }):JSX.Element => {
-    const [info, setInfo] = useState({});
+const Country: FunctionComponent<CountryPageProps> = ({ data, country }):JSX.Element => {
+    // const [info, setInfo] = useState({});
 
-    async function fetchInfo(): Promise<void> {
+    /* async function fetchInfo(): Promise<void> {
         const res = await fetch(`https://covid19.mathdro.id/api/countries/${country.country}`);
         const data = await res.json();
         setInfo(data);
@@ -24,7 +25,11 @@ const Country: FunctionComponent<CountryPageProps> = ({ country }):JSX.Element =
     useEffect(() => {
         fetchInfo();
         console.log(country);
-    }, [info])
+    }, [info]) */
+    useEffect(() => {
+        console.log(data);
+        //console.log(country)
+    })
 
     return (
         <div className={styles.indexPage}>
@@ -37,11 +42,11 @@ const Country: FunctionComponent<CountryPageProps> = ({ country }):JSX.Element =
             <h2>Coronavirus Info</h2>
             <div className={styles.infoCardsContainer}>
                 <section className={styles.infoCards}>
-                <DataCard title="Infected" value={ info !== {} ? info.confirmed.value : "Fetching"} />
-                <DataCard title="Recovered" value={ info !== {} ? info.recovered.value : "Fetching"} />
-                <DataCard title="Deaths" value={ info !== {} ? info.deaths.value : "Fetching"} />
-                <DataCard title="Effective" value={ info !== {} ? info.confirmed.value + info.deaths.value : "Fetching"} />
-            </section>
+                    <DataCard title="Infected" value={ data !== {} ? data.confirmed.value : "Fetching"} />
+                    <DataCard title="Recovered" value={ data !== {} ? data.recovered.value : "Fetching"} />
+                    <DataCard title="Deaths" value={ data !== {} ? data.deaths.value : "Fetching"} />
+                    <DataCard title="Effective" value={ data !== {} ? data.confirmed.value + data.deaths.value : "Fetching"} />
+                </section> 
             </div>
         </div>
     )
@@ -50,10 +55,11 @@ const Country: FunctionComponent<CountryPageProps> = ({ country }):JSX.Element =
 export const getServerSideProps: GetServerSideProps = async context => {
     console.log(context.query);
     const country = context.query;
-    /* const res = await fetch(`https://covid19.mathdro.id/api/countries/${country}`);
-    const data = await res.json(); */
+    const res = await fetch(`https://covid19.mathdro.id/api/countries/${country.country}`);
+    const data = await res.json(); 
+    console.log(data);
     return {
-        props: { country }
+        props: { data, country }
     }
 }
 
