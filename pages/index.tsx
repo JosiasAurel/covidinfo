@@ -9,7 +9,14 @@ import { GetStaticProps } from "next";
 
 import Head from "next/head";
 
-const Index: FunctionComponent = ({ data }): JSX.Element => {
+// charting
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
+
+interface IndexPageProps {
+    data: any
+}
+
+const Index: FunctionComponent<IndexPageProps> = ({ data }): JSX.Element => {
 
     // const [data, setData] = useState({});
 

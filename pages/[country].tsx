@@ -8,7 +8,11 @@ import Head from "next/head";
 
 import styles from "../styles/index.module.css";
 
-const Country: FunctionComponent = ({ country }):JSX.Element => {
+interface CountryPageProps {
+    country: any
+}
+
+const Country: FunctionComponent<CountryPageProps> = ({ country }):JSX.Element => {
     const [info, setInfo] = useState({});
 
     async function fetchInfo(): Promise<void> {
