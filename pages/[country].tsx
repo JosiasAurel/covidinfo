@@ -37,10 +37,10 @@ const Country: FunctionComponent<CountryPageProps> = ({ country }):JSX.Element =
             <h2>Coronavirus Info</h2>
             <div className={styles.infoCardsContainer}>
                 <section className={styles.infoCards}>
-                <DataCard title="Infected" value={ info !== {} ? info.confirmed?.value : "Fetching"} />
-                <DataCard title="Recovered" value={ info !== {} ? info.recovered?.value : "Fetching"} />
-                <DataCard title="Deaths" value={ info !== {} ? info.deaths?.value : "Fetching"} />
-                <DataCard title="Effective" value={ info !== {} ? info.confirmed?.value + info.deaths?.value : "Fetching"} />
+                <DataCard title="Infected" value={ info !== {} ? info.confirmed.value : "Fetching"} />
+                <DataCard title="Recovered" value={ info !== {} ? info.recovered.value : "Fetching"} />
+                <DataCard title="Deaths" value={ info !== {} ? info.deaths.value : "Fetching"} />
+                <DataCard title="Effective" value={ info !== {} ? info.confirmed.value + info.deaths.value : "Fetching"} />
             </section>
             </div>
         </div>

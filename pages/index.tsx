@@ -10,7 +10,7 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 
 // charting
-import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
+// import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 
 interface IndexPageProps {
     data: any
