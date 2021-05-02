@@ -40,3 +40,10 @@
 .header input:focus {
     outline: none;
 }
+
+@media screen and (max-width: 627px) {
+    .infoCards {
+        display: flex;
+        flex-direction: column;
+    }
+}
