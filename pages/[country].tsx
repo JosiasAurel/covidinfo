@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import DataCard from "../components/DataCard";
 
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 
 import styles from "../styles/index.module.css";
 
@@ -19,11 +20,16 @@ const Country: FunctionComponent = ({ country }):JSX.Element => {
     useEffect(() => {
         fetchInfo();
         console.log(country);
-    }, [])
+    }, [info])
 
     return (
         <div className={styles.indexPage}>
-            <Header />
+            <Head>
+                <title>Coronavirus info - {country.country} </title>
+                <meta name="title" content="Coronavirus info" />
+                <meta name="description" content="Get some information about coronavirus"></meta>
+            </Head>
+            <Header country={country.country} />
             <h2>Coronavirus Info</h2>
             <div className={styles.infoCardsContainer}>
                 <section className={styles.infoCards}>

@@ -7,6 +7,8 @@ import styles from "../styles/index.module.css";
 
 import { GetStaticProps } from "next";
 
+import Head from "next/head";
+
 const Index: FunctionComponent = ({ data }): JSX.Element => {
 
     // const [data, setData] = useState({});
@@ -26,6 +28,11 @@ const Index: FunctionComponent = ({ data }): JSX.Element => {
 
     return (
         <div className={styles.indexPage}>
+            <Head>
+                <title>Coronavirus info</title>
+                <meta name="title" content="Coronavirus info" />
+                <meta name="description" content="Get some information about coronavirus"></meta>
+            </Head>
             <Header />
             <h2>Coronavirus Info</h2>
             <div className={styles.infoCardsContainer}>
