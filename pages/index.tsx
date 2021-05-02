@@ -44,10 +44,10 @@ const Index: FunctionComponent<IndexPageProps> = ({ data }): JSX.Element => {
             <h2>Coronavirus Info</h2>
             <div className={styles.infoCardsContainer}>
                 <section className={styles.infoCards}>
-                <DataCard title="Infected" value={ data !== {} ? data.confirmed.value : "Fetching"} />
-                <DataCard title="Recovered" value={ data !== {} ? data.recovered.value : "Fetching"} />
-                <DataCard title="Deaths" value={ data !== {} ? data.deaths.value : "Fetching"} />
-                <DataCard title="Effective" value={ data !== {} ? data.confirmed.value + data.deaths.value : "Fetching"} />
+                <DataCard title="Infected" value={ data !== {} ? (data.confirmed.value).toLocaleString() : "Fetching"} />
+                    <DataCard title="Recovered" value={ data !== {} ? (data.recovered.value).toLocaleString() : "Fetching"} />
+                    <DataCard title="Deaths" value={ data !== {} ? (data.deaths.value).toLocaleString() : "Fetching"} />
+                    <DataCard title="Effective" value={ data !== {} ? (data.confirmed.value + data.deaths.value).toLocaleString() : "Fetching"} />
             </section>
             </div>
         </div>
